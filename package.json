@@ -2,14 +2,14 @@
   "name": "jabref-static-site",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@11.20.0",
   "scripts": {
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "npx serve .output/public"
   },
   "devDependencies": {
-    "nuxt": "^4.3.1",
+    "nuxt": "^4.5.1",
     "serve": "^14.2.4"
   }
 }
