@@ -10,11 +10,13 @@ import {
   faCode,
   faComments,
   faGift,
+  faGlobe,
   faHeart,
   faLightbulb,
   faNewspaper,
   faPersonWalking,
 } from '@fortawesome/free-solid-svg-icons'
+import { faChrome, faEdge, faFirefoxBrowser } from '@fortawesome/free-brands-svg-icons'
 
 const props = defineProps<{ name: string }>()
 
@@ -28,6 +30,10 @@ const icons = {
   bulb: faLightbulb,
   bug: faBug,
   edit: faNewspaper,
+  chrome: faChrome,
+  firefox: faFirefoxBrowser,
+  edge: faEdge,
+  vivaldi: faGlobe,
 }
 
 const icon = computed(() => icons[props.name as keyof typeof icons] ?? faBook)

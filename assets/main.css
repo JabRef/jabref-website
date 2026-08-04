@@ -249,15 +249,17 @@ li + li {
   color: var(--muted);
 }
 
-.browsers img {
-  height: 24px;
-}
-
 .browsers a {
   display: grid;
   width: 44px;
   height: 44px;
   place-items: center;
+}
+
+.browsers .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
 }
 
 /* Tinted sections: download and the secondary information band. */
