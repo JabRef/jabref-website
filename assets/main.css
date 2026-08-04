@@ -32,6 +32,11 @@ body {
   font: 16px/1.55 system-ui, sans-serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 a {
   color: var(--link);
 }
@@ -56,8 +61,7 @@ h2 {
 }
 
 .centered,
-.hero,
-.intro {
+.hero {
   text-align: center;
 }
 
@@ -144,7 +148,6 @@ h2 {
 
 /* Shared page sections and introductory copy. */
 .hero,
-.intro,
 .community,
 .support,
 .band {
@@ -152,7 +155,7 @@ h2 {
 }
 
 .lead,
-.intro p,
+.hero-intro p,
 li,
 .community p {
   color: var(--muted);
@@ -180,14 +183,38 @@ li,
 /* Main JabRef application screenshot. */
 .screen {
   display: block;
-  width: 100%;
-  margin-top: 3rem;
+  max-width: 100%;
+  height: auto;
+  margin: 5rem auto 0;
   border-radius: 0.75rem;
   box-shadow: 0 0 25px #a7a7bd;
 }
 
 .screen-link {
   display: block;
+}
+
+/* Mirrors the supporting copy and call to action in the original homepage. */
+.hero-intro {
+  max-width: 75%;
+  margin: 4rem auto 0;
+}
+
+.hero-intro h2 {
+  font-size: 1.875rem;
+}
+
+.hero-intro p {
+  margin: 0.5rem 0 0;
+}
+
+.hero-intro + .button {
+  margin-top: 1.5rem;
+}
+
+.hero-download-options {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
 }
 
 /* Alternating feature rows. Add a FeatureSection to index.vue to add one. */
@@ -298,8 +325,8 @@ li + li {
 }
 
 .support-grid .icon {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .support-grid span {
@@ -443,7 +470,6 @@ footer {
   }
 
   .hero,
-  .intro,
   .community,
   .support,
   .band {
@@ -463,6 +489,11 @@ footer {
 
   .hero .screen {
     margin-top: 0;
+  }
+
+  .hero-intro {
+    max-width: 100%;
+    margin-top: 3rem;
   }
 
   .feature,
