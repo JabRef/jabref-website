@@ -107,6 +107,8 @@ h2 {
 }
 
 .theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
   padding: 0.35rem 0.6rem;
   border: 1px solid var(--line);
   border-radius: 0.4rem;
@@ -118,6 +120,8 @@ h2 {
 
 .mobile-menu-button {
   display: none;
+  min-width: 44px;
+  min-height: 44px;
   gap: 0.35rem;
   align-items: center;
   padding: 0.35rem 0.6rem;
@@ -216,6 +220,13 @@ li + li {
 
 .browsers img {
   height: 24px;
+}
+
+.browsers a {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
 }
 
 /* Tinted sections: download and the secondary information band. */
@@ -419,6 +430,12 @@ footer {
 
   .site-nav.open {
     display: flex;
+  }
+
+  .site-nav a,
+  .footer-grid a {
+    min-height: 44px;
+    padding: 0.6rem 0;
   }
 
   .hero,
