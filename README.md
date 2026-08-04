@@ -13,7 +13,7 @@ The Vue implementation is based on the JabRefOnline project, created by [Tobias 
 - `public/assets/` contains the main product images and logo. Files in `public/` are served unchanged below the configured site base path.
 - `public/img/` contains browser icons and the favicon asset.
 - `assets/main.css` contains the small site-wide style sheet, including the automatic dark-theme colors.
-- `assets/legal-notices.md` and `assets/privacy-policy.md` contain the bundled legal text for the corresponding static pages.
+- `assets/legal-notices.html` and `assets/privacy-policy.html` contain the bundled legal text as simple semantic HTML.
 
 ## Adding or changing content
 

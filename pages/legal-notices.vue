@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import legalNotices from '~/assets/legal-notices.md?raw'
+import legalNotices from '~/assets/legal-notices.html?raw'
 </script>

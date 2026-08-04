@@ -315,7 +315,7 @@ footer {
   text-decoration: none;
 }
 
-/* Legal and privacy-policy pages. The content is kept in assets/*.md. */
+/* Legal and privacy-policy pages. Markdown is converted to semantic HTML at build time. */
 .legal-page {
   max-width: 960px;
   padding: 3rem 0 5rem;
@@ -328,13 +328,28 @@ footer {
   background: var(--surface);
 }
 
-.legal-page pre {
-  margin: 0;
+.legal-content {
   color: var(--download-copy);
-  font: inherit;
-  white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.legal-content h2,
+.legal-content h3,
+.legal-content h4 {
+  color: var(--ink);
+  margin: 2rem 0 0.75rem;
+}
+
+.legal-content h2 { font-size: 1.55rem; }
+.legal-content h3 { font-size: 1.2rem; }
+.legal-content h4 { font-size: 1rem; }
+
+.legal-content p,
+.legal-content ul { margin: 0 0 1rem; }
+
+.legal-content ul { padding-left: 1.25rem; }
+
+.legal-content li + li { margin-top: 0.4rem; }
 
 /*
  * Explicit visitor choice wins. ThemeToggle writes data-theme to <html>.

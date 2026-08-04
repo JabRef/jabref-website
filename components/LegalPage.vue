@@ -8,7 +8,8 @@
       <NuxtLink to="/">← Back to homepage</NuxtLink>
       <article>
         <h1>{{ title }}</h1>
-        <pre>{{ content }}</pre>
+        <!-- Content is generated from the repository's trusted legal text. -->
+        <div class="legal-content" v-html="content" />
       </article>
     </main>
   </div>
