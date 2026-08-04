@@ -43,7 +43,9 @@
         <h1>Stay on top of your literature.</h1>
         <p class="lead">The efficient way to collect, organize, and discover.</p>
         <a class="button" href="https://github.com/JabRef/jabref/releases/latest">Download JabRef</a>
-        <img class="screen" :src="assetUrl('/assets/jabref-mainscreen.png')" alt="The JabRef desktop application" width="1342" height="940" />
+        <a class="screen-link" :href="assetUrl('/assets/jabref-mainscreen.png')" target="_blank" rel="noopener" aria-label="Open the JabRef application screenshot at full size">
+          <img class="screen" :src="assetUrl('/assets/jabref-mainscreen.png')" alt="The JabRef desktop application" width="1342" height="940" />
+        </a>
       </section>
 
       <section class="intro container">
