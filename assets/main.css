@@ -1,0 +1,379 @@
+/*
+ * Theme tokens
+ * Change these values to update the colour scheme. The dark values below
+ * override them when the visitor selects dark mode or prefers it in the OS.
+ */
+:root {
+  --primary: #4f5f8f;
+  --link: #4f5f8f;
+  --ink: #131723;
+  --muted: #6072a7;
+  --line: #d1d5db;
+  --surface: #e8ebf3;
+  --base: #fff;
+  --download-heading: #131723;
+  --download-copy: #272f47;
+  color-scheme: light dark;
+}
+
+/* Base typography and reusable layout helpers. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--base);
+  font: 16px/1.55 system-ui, sans-serif;
+}
+
+a {
+  color: var(--link);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.container {
+  width: min(1100px, calc(100% - 2rem));
+  margin: auto;
+}
+
+.centered,
+.hero,
+.intro {
+  text-align: center;
+}
+
+/* Header and theme switch. */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 72px;
+  padding: 0 max(1rem, calc((100vw - 1100px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--base);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 34px;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+nav a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.theme-toggle {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Shared page sections and introductory copy. */
+.hero,
+.intro,
+.community,
+.support,
+.band {
+  padding: 5rem 0;
+}
+
+.lead,
+.intro p,
+li,
+.community p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.4rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Main JabRef application screenshot. */
+.screen {
+  display: block;
+  width: 100%;
+  margin-top: 3rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 25px #a7a7bd;
+}
+
+/* Alternating feature rows. Add a FeatureSection to index.vue to add one. */
+.feature {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.feature.reverse > div {
+  order: 2;
+}
+
+.feature img {
+  max-width: 100%;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 12px #a7a7bd;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+.browsers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--muted);
+}
+
+.browsers img {
+  height: 24px;
+}
+
+/* Tinted sections: download and the secondary information band. */
+.band {
+  background: var(--surface);
+}
+
+#download h2 {
+  color: var(--download-heading);
+}
+
+#download p {
+  color: var(--download-copy);
+}
+
+/* Community cards and support icon grid. */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.community-copy {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.community-cards article {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.community-cards strong {
+  display: block;
+}
+
+.community-cards a {
+  color: var(--primary);
+}
+
+.icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: var(--primary);
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto 0;
+}
+
+.support-grid a {
+  display: block;
+  color: var(--primary);
+  font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.support-grid .icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.support-grid span {
+  display: block;
+}
+
+/* Footer link columns. */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.footer-grid strong,
+.footer-grid a {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Legal and privacy-policy pages. The content is kept in assets/*.md. */
+.legal-page {
+  max-width: 960px;
+  padding: 3rem 0 5rem;
+}
+
+.legal-page article {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
+.legal-page pre {
+  margin: 0;
+  color: var(--download-copy);
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/*
+ * Explicit visitor choice wins. ThemeToggle writes data-theme to <html>.
+ * The media query below applies only when no light preference is saved.
+ */
+:root[data-theme='dark'] {
+  --link: #afb8d3;
+  --ink: #d6dbe8;
+  --muted: #c9cfe1;
+  --line: #3b476b;
+  --surface: #1a1a2e;
+  --base: #12121e;
+  --download-heading: #d6dbe8;
+  --download-copy: #c9cfe1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --link: #afb8d3;
+    --ink: #d6dbe8;
+    --muted: #c9cfe1;
+    --line: #3b476b;
+    --surface: #1a1a2e;
+    --base: #12121e;
+    --download-heading: #d6dbe8;
+    --download-copy: #c9cfe1;
+  }
+
+  :root:not([data-theme='light']) .screen,
+  :root:not([data-theme='light']) .feature img {
+    box-shadow: none;
+  }
+}
+
+:root[data-theme='dark'] .screen,
+:root[data-theme='dark'] .feature img {
+  box-shadow: none;
+}
+
+/* One-column layout for phones and narrow windows. */
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+
+  .hero,
+  .intro,
+  .community,
+  .support,
+  .band {
+    padding: 3.5rem 0;
+  }
+
+  .feature,
+  .columns,
+  .support-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature.reverse > div {
+    order: initial;
+  }
+}
