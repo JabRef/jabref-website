@@ -23,6 +23,9 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm generate
+        env:
+          # Repository variable override: use `/` when the custom domain is live.
+          NUXT_APP_BASE_URL: ${{ vars.NUXT_APP_BASE_URL || '/jabref-website/' }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="site-header">
-      <NuxtLink class="brand" to="/"><img :src="'/assets/jabref.svg'" alt="" /> JabRef</NuxtLink>
+      <NuxtLink class="brand" to="/"><img :src="assetUrl('/assets/jabref.svg')" alt="" /> JabRef</NuxtLink>
       <ThemeToggle />
     </header>
     <main class="legal-page container">
@@ -19,4 +19,7 @@ defineProps<{
   title: string
   content: string
 }>()
+
+const baseURL = useRuntimeConfig().app.baseURL
+const assetUrl = (path: string) => `${baseURL}${path.replace(/^\//, '')}`
 </script>

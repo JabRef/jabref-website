@@ -86,16 +86,24 @@ h2 {
   width: 34px;
 }
 
-nav {
+.site-nav {
   display: flex;
+  order: 2;
   gap: 1.5rem;
   margin-left: auto;
 }
 
-nav a {
+.site-nav a {
   color: var(--muted);
   font-weight: 600;
   text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  order: 3;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .theme-toggle {
@@ -106,6 +114,28 @@ nav a {
   color: var(--ink);
   font: inherit;
   cursor: pointer;
+}
+
+.mobile-menu-button {
+  display: none;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.mobile-menu-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
 }
 
 /* Shared page sections and introductory copy. */
@@ -347,14 +377,33 @@ footer {
 /* One-column layout for phones and narrow windows. */
 @media (max-width: 700px) {
   .site-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
     padding: 1rem;
   }
 
-  nav {
-    flex-wrap: wrap;
-    margin-left: 0;
+  .header-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-nav.open {
+    display: flex;
   }
 
   .hero,

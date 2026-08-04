@@ -4,7 +4,7 @@
       <h2>{{ title }}</h2>
       <slot />
     </div>
-    <img :src="image" :alt="imageAlt" />
+    <img :src="assetUrl(image)" :alt="imageAlt" />
   </article>
 </template>
 
@@ -15,4 +15,7 @@ defineProps<{
   imageAlt: string
   reverse?: boolean
 }>()
+
+const baseURL = useRuntimeConfig().app.baseURL
+const assetUrl = (path: string) => `${baseURL}${path.replace(/^\//, '')}`
 </script>

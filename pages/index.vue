@@ -2,17 +2,39 @@
   <div>
     <header class="site-header">
       <NuxtLink class="brand" to="#top">
-        <img :src="'/assets/jabref.svg'" alt="" />
+        <img :src="assetUrl('/assets/jabref.svg')" alt="" />
         JabRef
       </NuxtLink>
-      <nav aria-label="Main navigation">
+      <div class="header-actions">
+        <ThemeToggle />
+        <button
+          class="mobile-menu-button"
+          type="button"
+          aria-controls="site-navigation"
+          :aria-expanded="isMenuOpen"
+          :aria-label="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
+          @click="isMenuOpen = !isMenuOpen"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path v-if="isMenuOpen" d="m6 6 12 12M18 6 6 18" />
+            <path v-else d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <span>Menu</span>
+        </button>
+      </div>
+      <nav
+        id="site-navigation"
+        class="site-nav"
+        :class="{ open: isMenuOpen }"
+        aria-label="Main navigation"
+        @click="isMenuOpen = false"
+      >
         <a href="#features">Features</a>
         <a href="#download">Download</a>
         <a href="#community">Get involved</a>
         <a href="#support">Support</a>
         <a href="https://blog.jabref.org/">News</a>
       </nav>
-      <ThemeToggle />
     </header>
 
     <main id="top">
@@ -21,7 +43,7 @@
         <h1>Stay on top of your literature.</h1>
         <p class="lead">The efficient way to collect, organize, and discover.</p>
         <a class="button" href="https://github.com/JabRef/jabref/releases/latest">Download JabRef</a>
-        <img class="screen" :src="'/assets/jabref-mainscreen.png'" alt="The JabRef desktop application" />
+        <img class="screen" :src="assetUrl('/assets/jabref-mainscreen.png')" alt="The JabRef desktop application" />
       </section>
 
       <section class="intro container">
@@ -32,7 +54,7 @@
       <section id="features" class="container">
         <FeatureSection title="Collect" image="/assets/feature-websearch.png" image-alt="JabRef web search interface">
           <ul><li>Import options for over 15 reference formats.</li><li>Easily retrieve and link full-text articles.</li><li>Fetch complete bibliographic information based on ISBN, DOI, PubMed-ID, and arXiv-ID.</li><li>Import new references directly from the web browser with one click using the official browser extension.</li></ul>
-          <p class="browsers"><span>Get now:</span><a href="https://chromewebstore.google.com/detail/jabref-browser-extension/bifehkofibaamoeaopjglfkddgkijdlh"><img :src="'/img/chrome.png'" alt="Chrome" /></a><a href="https://addons.mozilla.org/en-US/firefox/addon/jabref?utm_source=www.jabref.org"><img :src="'/img/firefox.png'" alt="Firefox" /></a><a href="https://microsoftedge.microsoft.com/addons/detail/pgkajmkfgbehiomipedjhoddkejohfna"><img :src="'/img/edge.png'" alt="Edge" /></a><a href="https://chromewebstore.google.com/detail/jabref-browser-extension/bifehkofibaamoeaopjglfkddgkijdlh"><img :src="'/img/vivaldi.png'" alt="Vivaldi" /></a></p>
+          <p class="browsers"><span>Get now:</span><a href="https://chromewebstore.google.com/detail/jabref-browser-extension/bifehkofibaamoeaopjglfkddgkijdlh"><img :src="assetUrl('/img/chrome.png')" alt="Chrome" /></a><a href="https://addons.mozilla.org/en-US/firefox/addon/jabref?utm_source=www.jabref.org"><img :src="assetUrl('/img/firefox.png')" alt="Firefox" /></a><a href="https://microsoftedge.microsoft.com/addons/detail/pgkajmkfgbehiomipedjhoddkejohfna"><img :src="assetUrl('/img/edge.png')" alt="Edge" /></a><a href="https://chromewebstore.google.com/detail/jabref-browser-extension/bifehkofibaamoeaopjglfkddgkijdlh"><img :src="assetUrl('/img/vivaldi.png')" alt="Vivaldi" /></a></p>
         </FeatureSection>
         <FeatureSection reverse title="Edit" image="/assets/feature-complete.png" image-alt="JabRef reference editor"><ul><li>Complete and improve bibliographic data by comparing with curated online catalogues such as Google Scholar, Springer, or MathSciNet.</li><li>Automatically rename and move associated files according to customizable rules.</li><li>Customize and add new metadata fields or reference types.</li></ul></FeatureSection>
         <FeatureSection title="Organize" image="/assets/feature-groups.png" image-alt="JabRef groups panel"><ul><li>Group your research into hierarchical collections.</li><li>Organize articles based on keywords, tags, search terms, or your manual assignments.</li><li>Advanced search and filter features.</li><li>Keep track of what you read: ranking, priority, printed, quality-assured.</li></ul></FeatureSection>
@@ -52,6 +74,12 @@
 
       <section id="support" class="container support"><div class="centered"><h2>Want to learn more?</h2></div><div class="support-grid"><a href="https://docs.jabref.org/getting-started"><AppIcon name="walk" /><span>Getting started</span></a><a href="http://discourse.jabref.org"><AppIcon name="chat" /><span>Forum</span></a><a href="https://docs.jabref.org/"><AppIcon name="book" /><span>User Documentation</span></a><a href="https://discourse.jabref.org/c/features/"><AppIcon name="bulb" /><span>Propose a new feature</span></a><a href="https://github.com/JabRef/jabref/issues"><AppIcon name="bug" /><span>Report a bug</span></a><a href="https://blog.jabref.org/"><AppIcon name="edit" /><span>Blog</span></a></div></section>
     </main>
-    <footer><div class="container footer-grid"><div><NuxtLink class="brand" to="#top"><img :src="'/assets/jabref.svg'" alt="" /> JabRef</NuxtLink></div><div><strong>Install</strong><a href="https://github.com/JabRef/jabref/releases/latest">Desktop apps</a><a href="https://docs.jabref.org/collect/jabref-browser-extension">Browser extensions</a><a href="https://builds.jabref.org/main/">Development build</a><a href="https://github.com/JabRef/jabref/blob/main/CHANGELOG.md">Change log</a></div><div><strong>Links</strong><a href="https://docs.jabref.org/advanced/resources">Resources</a><a href="http://java.by-comparison.com/">Java by Comparison</a><NuxtLink to="/legal-notices">Legal notices</NuxtLink><NuxtLink to="/privacy-policy">Privacy policy</NuxtLink></div><div><strong>Contribute</strong><a href="https://github.com/JabRef/jabref/wiki/Donations">Donation</a><a href="https://docs.jabref.org/faqcontributing/how-to-translate-the-ui">Translation</a><a href="https://github.com/JabRef/jabref">GitHub</a><a href="https://devdocs.jabref.org/">Developer Docs</a></div><div><strong>Help &amp; contact</strong><a href="https://docs.jabref.org/">Documentation</a><a href="http://discourse.jabref.org/">Forum</a><a href="https://matrix.to/#/#JabRef_jabref:gitter.im">Chat</a><a href="https://foojay.social/@jabref">Mastodon</a><a href="https://twitter.com/JabRef_org">Twitter</a><a href="https://github.com/JabRef/jabref/issues">Report an issue</a></div></div></footer>
+    <footer><div class="container footer-grid"><div><NuxtLink class="brand" to="#top"><img :src="assetUrl('/assets/jabref.svg')" alt="" /> JabRef</NuxtLink></div><div><strong>Install</strong><a href="https://github.com/JabRef/jabref/releases/latest">Desktop apps</a><a href="https://docs.jabref.org/collect/jabref-browser-extension">Browser extensions</a><a href="https://builds.jabref.org/main/">Development build</a><a href="https://github.com/JabRef/jabref/blob/main/CHANGELOG.md">Change log</a></div><div><strong>Links</strong><a href="https://docs.jabref.org/advanced/resources">Resources</a><a href="http://java.by-comparison.com/">Java by Comparison</a><NuxtLink to="/legal-notices">Legal notices</NuxtLink><NuxtLink to="/privacy-policy">Privacy policy</NuxtLink></div><div><strong>Contribute</strong><a href="https://github.com/JabRef/jabref/wiki/Donations">Donation</a><a href="https://docs.jabref.org/faqcontributing/how-to-translate-the-ui">Translation</a><a href="https://github.com/JabRef/jabref">GitHub</a><a href="https://devdocs.jabref.org/">Developer Docs</a></div><div><strong>Help &amp; contact</strong><a href="https://docs.jabref.org/">Documentation</a><a href="http://discourse.jabref.org/">Forum</a><a href="https://matrix.to/#/#JabRef_jabref:gitter.im">Chat</a><a href="https://foojay.social/@jabref">Mastodon</a><a href="https://twitter.com/JabRef_org">Twitter</a><a href="https://github.com/JabRef/jabref/issues">Report an issue</a></div></div></footer>
   </div>
 </template>
+
+<script setup lang="ts">
+const isMenuOpen = ref(false)
+const baseURL = useRuntimeConfig().app.baseURL
+const assetUrl = (path: string) => `${baseURL}${path.replace(/^\//, '')}`
+</script>
