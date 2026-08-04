@@ -450,11 +450,19 @@ footer {
     padding: 3.5rem 0;
   }
 
-  /* A full desktop interface becomes illegible when merely scaled down. */
-  .screen {
-    aspect-ratio: 1;
-    object-fit: cover;
-    object-position: top center;
+  /* Put the complete product view first on phones without cropping it. */
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero .screen-link {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+
+  .hero .screen {
+    margin-top: 0;
   }
 
   .feature,
