@@ -40,7 +40,7 @@ onMounted(async () => {
   try {
     release.value = await fetchLatestJabRefRelease(baseURL)
   } catch {
-    // Keep the generic latest-release URL when GitHub cannot be reached.
+    // Keep the generic latest-release URL when the local download manifest cannot be loaded.
   }
 })
 </script>
