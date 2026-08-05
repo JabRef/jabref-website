@@ -1,0 +1,41 @@
+{
+  "version": "v5.15",
+  "assets": [
+    {
+      "name": "jabref-5.15-1.x86_64.rpm",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/jabref-5.15-1.x86_64.rpm"
+    },
+    {
+      "name": "JabRef-5.15-arm64.dmg",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15-arm64.dmg"
+    },
+    {
+      "name": "JabRef-5.15-arm64.pkg",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15-arm64.pkg"
+    },
+    {
+      "name": "JabRef-5.15-portable_linux.tar.gz",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15-portable_linux.tar.gz"
+    },
+    {
+      "name": "JabRef-5.15-portable_windows.zip",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15-portable_windows.zip"
+    },
+    {
+      "name": "JabRef-5.15.dmg",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15.dmg"
+    },
+    {
+      "name": "JabRef-5.15.msi",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15.msi"
+    },
+    {
+      "name": "JabRef-5.15.pkg",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/JabRef-5.15.pkg"
+    },
+    {
+      "name": "jabref_5.15_amd64.deb",
+      "browser_download_url": "https://github.com/JabRef/jabref/releases/download/v5.15/jabref_5.15_amd64.deb"
+    }
+  ]
+}
