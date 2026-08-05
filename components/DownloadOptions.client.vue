@@ -52,6 +52,7 @@ const operatingSystem = ref<OperatingSystem>()
 const release = ref<JabRefRelease>()
 const isLoading = ref(true)
 const loadFailed = ref(false)
+const baseURL = useRuntimeConfig().app.baseURL
 
 function downloadUrl(target: DownloadTarget): string {
   return release.value ? resolveDownloadUrl(release.value, target) : JABREF_LATEST_RELEASE_URL
@@ -60,7 +61,7 @@ function downloadUrl(target: DownloadTarget): string {
 onMounted(async () => {
   operatingSystem.value = detectOs()
   try {
-    release.value = await fetchLatestJabRefRelease()
+    release.value = await fetchLatestJabRefRelease(baseURL)
   } catch {
     loadFailed.value = true
   } finally {

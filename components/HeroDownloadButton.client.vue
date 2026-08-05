@@ -14,6 +14,7 @@ import {
 
 const operatingSystem = ref<OperatingSystem>()
 const release = ref<JabRefRelease>()
+const baseURL = useRuntimeConfig().app.baseURL
 
 const targetByOperatingSystem: Record<OperatingSystem, DownloadTarget> = {
   windows: 'win_msi',
@@ -37,7 +38,7 @@ const downloadUrl = computed(() => {
 onMounted(async () => {
   operatingSystem.value = detectOs()
   try {
-    release.value = await fetchLatestJabRefRelease()
+    release.value = await fetchLatestJabRefRelease(baseURL)
   } catch {
     // Keep the generic latest-release URL when GitHub cannot be reached.
   }
