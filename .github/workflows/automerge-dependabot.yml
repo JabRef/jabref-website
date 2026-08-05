@@ -1,0 +1,25 @@
+name: Auto-merge Dependabot pull requests
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    if: github.repository == 'JabRef/jabref-website' && github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Approve Dependabot pull request
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_JABREF_MACHINE_PR_APPROVE }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr review --approve "$PR_URL"
+      - name: Enable squash auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_UPDATE_GRADLE_WRAPPER }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"
