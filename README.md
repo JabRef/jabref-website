@@ -140,3 +140,12 @@ root without a source-code change.
 GitHub Actions runs on pull requests and pushes to `main`. The workflow in
 `.github/workflows/build.yml` runs `pnpm generate` and uploads `.output/public`
 as the GitHub Pages artifact, then deploys pushes to `main` to GitHub Pages.
+
+## Updating download links after a JabRef release
+
+The static site reads its direct download URLs from `public/downloads.json`.
+After publishing a new JabRef release, run the **Update download manifest**
+workflow from the repository's Actions tab on `main`. It fetches the new release
+assets and commits the updated manifest; that commit triggers the normal site
+deployment. The workflow also runs daily, but trigger it manually after a
+release so the download links are updated immediately.
