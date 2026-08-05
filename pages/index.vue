@@ -49,7 +49,7 @@
           <h2>JabRef supports you in every step of your research</h2>
           <p>Read more about it below or get going straight away.</p>
         </div>
-        <a class="button" href="https://github.com/JabRef/jabref/releases/latest">Download JabRef</a>
+        <HeroDownloadButton />
         <p class="hero-download-options"><a href="#download">Or see all download options</a></p>
       </section>
 
