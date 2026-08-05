@@ -292,6 +292,12 @@ li + li {
   font-size: 0.8rem;
 }
 
+.download-fallback {
+  max-width: 34rem;
+  margin: 1rem auto 0;
+  font-size: 0.8rem;
+}
+
 /* Community cards and support icon grid. */
 .columns {
   display: grid;
