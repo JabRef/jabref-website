@@ -26,7 +26,7 @@ jobs:
         env:
           # Repository variable override: use `/` when the custom domain is live.
           NUXT_APP_BASE_URL: ${{ vars.NUXT_APP_BASE_URL || '/jabref-website/' }}
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
           path: .output/public
