@@ -9,7 +9,7 @@
     "preview": "npx serve .output/public"
   },
   "devDependencies": {
-    "nuxt": "^4.5.1",
+    "nuxt": "^4.5.2",
     "serve": "^14.2.4"
   },
   "dependencies": {
