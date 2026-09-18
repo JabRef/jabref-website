@@ -39,9 +39,9 @@
 
     <main id="top">
       <section class="hero container">
-        <p class="eyebrow">Free and open source</p>
         <h1>Stay on top of your Literature</h1>
         <p class="lead">The efficient way to collect, organize &amp; discover</p>
+        <p class="eyebrow">Free and open source</p>
         <a class="screen-link" :href="assetUrl('/assets/jabref-mainscreen.png')" target="_blank" rel="noopener" aria-label="Open the JabRef application screenshot at full size">
           <img class="screen" :src="assetUrl('/assets/jabref-mainscreen.png')" alt="The JabRef desktop application" width="1342" height="940" />
         </a>
