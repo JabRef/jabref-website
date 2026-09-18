@@ -16,6 +16,14 @@
   color-scheme: light dark;
 }
 
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('./fonts/bebas-neue-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* Base typography and reusable layout helpers. */
 * {
   box-sizing: border-box;
@@ -80,9 +88,12 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--ink);
-  font-size: 1.3rem;
-  font-weight: 700;
+  color: var(--primary);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.025em;
   text-decoration: none;
 }
 
@@ -382,6 +393,15 @@ footer {
   text-decoration: none;
 }
 
+/* Keep the logo lockup from inheriting the footer links' block spacing. */
+.footer-grid .brand {
+  display: flex;
+  min-height: 0;
+  margin-bottom: 0;
+  padding: 0;
+  color: var(--primary);
+}
+
 /* Legal and privacy-policy pages. Markdown is converted to semantic HTML at build time. */
 .legal-page {
   max-width: 960px;
@@ -444,16 +464,6 @@ footer {
     --download-heading: #d6dbe8;
     --download-copy: #c9cfe1;
   }
-
-  :root:not([data-theme='light']) .screen,
-  :root:not([data-theme='light']) .feature img {
-    box-shadow: none;
-  }
-}
-
-:root[data-theme='dark'] .screen,
-:root[data-theme='dark'] .feature img {
-  box-shadow: none;
 }
 
 /* One-column layout for phones and narrow windows. */
