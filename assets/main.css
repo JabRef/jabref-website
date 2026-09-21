@@ -11,6 +11,10 @@
   --line: #d1d5db;
   --surface: #e8ebf3;
   --base: #fff;
+  --header-base: #fff;
+  --header-ink: #131723;
+  --header-muted: #6072a7;
+  --header-line: #d1d5db;
   --download-heading: #131723;
   --download-copy: #272f47;
   color-scheme: light dark;
@@ -80,8 +84,9 @@ h2 {
   gap: 1.5rem;
   min-height: 72px;
   padding: 0 max(1rem, calc((100vw - 1100px) / 2));
-  border-bottom: 1px solid var(--line);
-  background: var(--base);
+  border-bottom: 1px solid var(--header-line);
+  background: var(--header-base);
+  color: var(--header-ink);
 }
 
 .brand {
@@ -109,7 +114,7 @@ h2 {
 }
 
 .site-nav a {
-  color: var(--muted);
+  color: var(--header-muted);
   font-weight: 600;
   text-decoration: none;
 }
@@ -443,26 +448,34 @@ footer {
  * The media query below applies only when no light preference is saved.
  */
 :root[data-theme='dark'] {
-  --link: #afb8d3;
-  --ink: #d6dbe8;
-  --muted: #c9cfe1;
-  --line: #3b476b;
-  --surface: #1a1a2e;
-  --base: #12121e;
-  --download-heading: #d6dbe8;
-  --download-copy: #c9cfe1;
+  --link: #fff;
+  --ink: #fff;
+  --muted: #fff;
+  --line: #fff;
+  --surface: #000;
+  --base: #000;
+  --header-base: #fff;
+  --header-ink: #131723;
+  --header-muted: #272f47;
+  --header-line: #d1d5db;
+  --download-heading: #fff;
+  --download-copy: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --link: #afb8d3;
-    --ink: #d6dbe8;
-    --muted: #c9cfe1;
-    --line: #3b476b;
-    --surface: #1a1a2e;
-    --base: #12121e;
-    --download-heading: #d6dbe8;
-    --download-copy: #c9cfe1;
+    --link: #fff;
+    --ink: #fff;
+    --muted: #fff;
+    --line: #fff;
+    --surface: #000;
+    --base: #000;
+    --header-base: #fff;
+    --header-ink: #131723;
+    --header-muted: #272f47;
+    --header-line: #d1d5db;
+    --download-heading: #fff;
+    --download-copy: #fff;
   }
 }
 
