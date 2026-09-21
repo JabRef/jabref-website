@@ -443,26 +443,26 @@ footer {
  * The media query below applies only when no light preference is saved.
  */
 :root[data-theme='dark'] {
-  --link: #fff;
-  --ink: #fff;
-  --muted: #fff;
-  --line: #fff;
-  --surface: #000;
-  --base: #000;
-  --download-heading: #fff;
-  --download-copy: #fff;
+  --link: #afb8d3;
+  --ink: #d6dbe8;
+  --muted: #c9cfe1;
+  --line: #3b476b;
+  --surface: #1a1a2e;
+  --base: #12121e;
+  --download-heading: #d6dbe8;
+  --download-copy: #c9cfe1;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --link: #fff;
-    --ink: #fff;
-    --muted: #fff;
-    --line: #fff;
-    --surface: #000;
-    --base: #000;
-    --download-heading: #fff;
-    --download-copy: #fff;
+    --link: #afb8d3;
+    --ink: #d6dbe8;
+    --muted: #c9cfe1;
+    --line: #3b476b;
+    --surface: #1a1a2e;
+    --base: #12121e;
+    --download-heading: #d6dbe8;
+    --download-copy: #c9cfe1;
   }
 }
 
