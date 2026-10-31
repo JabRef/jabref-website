@@ -10,6 +10,7 @@
   --muted: #6072a7;
   --line: #d1d5db;
   --surface: #e8ebf3;
+  --band-background: #e8ebf3;
   --base: #fff;
   --header-base: #fff;
   --header-ink: #131723;
@@ -280,7 +281,7 @@ li + li {
 
 /* Tinted sections: download and the secondary information band. */
 .band {
-  background: var(--surface);
+  background: var(--band-background);
 }
 
 #download h2 {
@@ -453,6 +454,7 @@ footer {
   --muted: #fff;
   --line: #fff;
   --surface: #000;
+  --band-background: #202635;
   --base: #000;
   --header-base: #fff;
   --header-ink: #131723;
@@ -469,6 +471,7 @@ footer {
     --muted: #fff;
     --line: #fff;
     --surface: #000;
+    --band-background: #202635;
     --base: #000;
     --header-base: #fff;
     --header-ink: #131723;
