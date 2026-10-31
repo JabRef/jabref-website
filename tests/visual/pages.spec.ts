@@ -19,6 +19,14 @@ for (const [name, path] of [
   })
 }
 
+test('download section in dark mode', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click()
+  await expect(page.locator('.download-options')).toHaveAttribute('aria-busy', 'false')
+  await page.evaluate(() => document.fonts.ready)
+  await expect(page.locator('#download')).toHaveScreenshot('download-dark.png', { animations: 'disabled' })
+})
+
 test('mobile navigation opens', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile')
   await page.goto('/')
