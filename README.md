@@ -140,3 +140,24 @@ root without a source-code change.
 GitHub Actions runs on pull requests and pushes to `main`. The workflow in
 `.github/workflows/build.yml` runs `pnpm generate` and uploads `.output/public`
 as the GitHub Pages artifact, then deploys pushes to `main` to GitHub Pages.
+
+## Visual regression tests
+
+Playwright compares the generated home and legal pages on desktop and mobile,
+plus the open mobile navigation, with committed screenshots. CI runs these tests
+in the pinned Playwright Linux image used to create the baselines. A failure
+uploads the actual and diff images as a `visual-regression-results` artifact.
+
+To reproduce CI and update screenshots after an intentional visual change, run
+Docker on an x86-64 machine (or use `--platform linux/amd64` on Apple Silicon):
+
+```sh
+docker run --rm --platform linux/amd64 --ipc=host \
+  -v "$PWD:/work" -v /work/node_modules -w /work \
+  mcr.microsoft.com/playwright:v1.64.1-noble \
+  bash -c 'corepack enable && pnpm install --frozen-lockfile && NUXT_APP_BASE_URL=/ pnpm generate && pnpm test:visual --update-snapshots'
+```
+
+Review and commit the changed PNG files. Omit `--update-snapshots` to compare
+against the current baselines. Keep the image version in this command and the
+workflow aligned with `@playwright/test` when updating Playwright.

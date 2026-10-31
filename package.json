@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "npx serve .output/public"
+    "preview": "npx serve .output/public",
+    "test:visual": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "nuxt": "^4.5.2",
     "serve": "^14.2.4"
   },
