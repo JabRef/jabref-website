@@ -6,16 +6,16 @@
 it over SSH on pushes to `main` or when manually run on `main`. Set up the
 following under **Settings → Secrets and variables → Actions** before running it:
 
-- Repository variable `UBERSPACE_SSH_HOST`: the Uberspace SSH hostname, for example `example.uberspace.de`.
-- Repository variable `UBERSPACE_SSH_USER`: the Uberspace account username.
-- Repository variable `UBERSPACE_SSH_KNOWN_HOSTS`: the SSH host key line for that hostname, verified against Uberspace's published host key fingerprints or another trusted channel.
+- Repository secret `UBERSPACE_SSH_HOST`: the Uberspace SSH hostname, for example `example.uberspace.de`.
+- Repository secret `UBERSPACE_SSH_USER`: the Uberspace account username.
+- Repository secret `UBERSPACE_SSH_KNOWN_HOSTS`: the SSH host key line for that hostname, verified against Uberspace's published host key fingerprints or another trusted channel.
 - Repository secret `UBERSPACE_SSH_PRIVATE_KEY`: a dedicated, unencrypted SSH private key whose public key is installed in the account's `~/.ssh/authorized_keys`.
 - Optional repository variable `UBERSPACE_BASE_URL`: the URL path for the site, including leading and trailing slashes. It defaults to `/`.
 
 For example, generate a dedicated key with `ssh-keygen -t ed25519 -f uberspace-deploy -N ''`;
 install the `.pub` file on the server and store the complete private key as the
 secret. Obtain a candidate host key with `ssh-keyscan -H example.uberspace.de`
-and verify its fingerprint independently before saving the line as the variable.
+and verify its fingerprint independently before saving the line as the secret.
 See [Uberspace's deployment guide](https://lab.uberspace.de/howto_automatic-deployment/)
 for SSH setup and optional restrictions on the deployment key.
 
