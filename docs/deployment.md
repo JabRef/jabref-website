@@ -24,8 +24,7 @@ document root for `jabref.org`. Before deploying, register `jabref.org` and
 `www.jabref.org` with `uberspace web domain add`, create the `jabref.org`
 directory under `/var/www/virtual/<username>/`, and create `www.jabref.org` in
 the same directory as a relative symlink to `jabref.org`. Keep the existing
-`html` directory: Uberspace requires it for additional document roots, and it
-contains the existing cloud installation at `jabref.uber.space/cloud`.
+`html` directory: Uberspace requires it for additional document roots.
 
 In Cloudflare, configure the web DNS records using the addresses provided by
 Uberspace. Preserve the existing MX and other mail-related records. See the
