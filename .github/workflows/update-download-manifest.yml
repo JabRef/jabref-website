@@ -67,8 +67,14 @@ jobs:
 
           echo 'The manifest commit did not reach main in time.' >&2
           exit 1
-      - name: Trigger static-site deployment
+      - name: Trigger static-site deployments
         if: steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run build.yml --ref main
+        run: |
+          set -u
+          status=0
+          for workflow in build.yml deploy-uberspace.yml; do
+            gh workflow run "$workflow" --ref main || status=1
+          done
+          exit "$status"

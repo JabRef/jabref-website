@@ -1,0 +1,51 @@
+name: Deploy to Uberspace
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uberspace-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm generate
+        env:
+          NUXT_APP_BASE_URL: ${{ vars.UBERSPACE_BASE_URL || '/' }}
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.UBERSPACE_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ vars.UBERSPACE_SSH_KNOWN_HOSTS }}
+        run: |
+          set -eu
+          test -n "$SSH_PRIVATE_KEY"
+          test -n "$SSH_KNOWN_HOSTS"
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/uberspace_key
+          chmod 600 ~/.ssh/uberspace_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Upload site
+        env:
+          SSH_HOST: ${{ vars.UBERSPACE_SSH_HOST }}
+          SSH_USER: ${{ vars.UBERSPACE_SSH_USER }}
+        run: |
+          set -eu
+          [[ "$SSH_HOST" =~ ^[a-zA-Z0-9.-]+$ ]]
+          [[ "$SSH_USER" =~ ^[a-z_][a-z0-9_-]*$ ]]
+          rsync -az -e 'ssh -i ~/.ssh/uberspace_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes' \
+            .output/public/ "$SSH_USER@$SSH_HOST:/var/www/virtual/$SSH_USER/jabref.org/"

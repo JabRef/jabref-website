@@ -141,6 +141,8 @@ GitHub Actions runs on pull requests and pushes to `main`. The workflow in
 `.github/workflows/build.yml` runs `pnpm generate` and uploads `.output/public`
 as the GitHub Pages artifact, then deploys pushes to `main` to GitHub Pages.
 
+For Uberspace setup and deployment, see [Deployment](docs/deployment.md).
+
 ## Visual regression tests
 
 Playwright compares the generated home and legal pages on desktop and mobile,
