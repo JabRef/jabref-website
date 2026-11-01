@@ -30,7 +30,7 @@ jobs:
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.UBERSPACE_SSH_PRIVATE_KEY }}
-          SSH_KNOWN_HOSTS: ${{ vars.UBERSPACE_SSH_KNOWN_HOSTS }}
+          SSH_KNOWN_HOSTS: ${{ secrets.UBERSPACE_SSH_KNOWN_HOSTS }}
         run: |
           set -eu
           test -n "$SSH_PRIVATE_KEY"
@@ -41,8 +41,8 @@ jobs:
           printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
       - name: Upload site
         env:
-          SSH_HOST: ${{ vars.UBERSPACE_SSH_HOST }}
-          SSH_USER: ${{ vars.UBERSPACE_SSH_USER }}
+          SSH_HOST: ${{ secrets.UBERSPACE_SSH_HOST }}
+          SSH_USER: ${{ secrets.UBERSPACE_SSH_USER }}
         run: |
           set -eu
           [[ "$SSH_HOST" =~ ^[a-zA-Z0-9.-]+$ ]]
