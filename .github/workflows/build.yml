@@ -59,7 +59,7 @@ jobs:
         env:
           NUXT_APP_BASE_URL: /
       - run: pnpm test:visual
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: visual-regression-results
