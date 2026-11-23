@@ -49,6 +49,7 @@
           <h2>JabRef supports you in every step of your research</h2>
           <p>Read more about it below or get going straight away.</p>
         </div>
+        <p><a href="https://github.com/JabRef/jabref/releases/tag/v6.0-beta.1">Try out the latest 6.0 beta</a></p>
         <HeroDownloadButton />
         <p class="hero-download-options"><a href="#download">Or see all download options</a></p>
       </section>

@@ -11,6 +11,7 @@ for (const [name, path] of [
     await page.evaluate(() => document.fonts.ready)
     if (name === 'home') {
       await expect(page.locator('.download-options')).toHaveAttribute('aria-busy', 'false')
+      await expect(page.getByRole('link', { name: 'Try out the latest 6.0 beta' })).toHaveAttribute('href', 'https://github.com/JabRef/jabref/releases/tag/v6.0-beta.1')
     }
     await expect.poll(() => page.locator('img').evaluateAll(images =>
       images.every(image => image.complete && image.naturalWidth > 0),
