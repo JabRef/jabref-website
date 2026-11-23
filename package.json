@@ -12,7 +12,7 @@
   "devDependencies": {
     "@playwright/test": "^1.64.1",
     "nuxt": "^4.6.3",
-    "serve": "^14.2.4"
+    "serve": "^14.2.8"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
