@@ -146,22 +146,24 @@ For Uberspace setup and deployment, see [Deployment](docs/deployment.md).
 ## Visual regression tests
 
 Playwright compares the generated home and legal pages on desktop and mobile,
-the dark download section, and the open mobile navigation with committed screenshots. CI runs these tests
-in the pinned Playwright Linux image used to create the baselines. A failure
-uploads the actual and diff images as a `visual-regression-results` artifact.
+the dark download section, and the open mobile navigation with committed
+screenshots. CI selects the Playwright Linux image from the exact
+`@playwright/test` version in `package.json`, so Dependabot package updates also
+update the image used by CI. A failure uploads the actual and diff images as a
+`visual-regression-results` artifact.
 
-To reproduce CI and update screenshots after an intentional visual change, run
-Docker on an x86-64 machine (or use `--platform linux/amd64` on Apple Silicon):
+To reproduce CI and update screenshots after an intentional visual change,
+run these commands with Node.js and Docker installed:
 
 ```sh
+playwright_version=$(node -p 'require("./package.json").devDependencies["@playwright/test"]')
 docker run --rm --platform linux/amd64 --ipc=host \
   -v "$PWD:/work" -v /work/node_modules \
   -v jabref-pnpm-store:/pnpm/store -w /work \
-  mcr.microsoft.com/playwright:v1.64.1-noble \
+  "mcr.microsoft.com/playwright:v${playwright_version}-noble" \
   bash -c 'corepack enable && pnpm install --frozen-lockfile --store-dir /pnpm/store && NUXT_APP_BASE_URL=/ pnpm generate && pnpm test:visual --update-snapshots'
 ```
 
 Review and commit the changed PNG files. Omit `--update-snapshots` to compare
-against the current baselines. Keep the image version in this command and the
-workflow aligned with `@playwright/test` when updating Playwright.
+against the current baselines.
 The named `jabref-pnpm-store` Docker volume caches packages between runs.
