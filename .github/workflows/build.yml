@@ -43,10 +43,27 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
+  playwright-version:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.playwright.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Read pinned Playwright version
+        id: playwright
+        run: |
+          version=$(node -p 'require("./package.json").devDependencies["@playwright/test"]')
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo '::error::Pin @playwright/test to an exact version so CI can select the matching Docker image.'
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
   visual-regression:
+    needs: playwright-version
     runs-on: ubuntu-24.04
     container:
-      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      image: mcr.microsoft.com/playwright:v${{ needs.playwright-version.outputs.version }}-noble
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
