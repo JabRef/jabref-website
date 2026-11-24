@@ -179,7 +179,21 @@ li,
   font-size: 1.1rem;
 }
 
+.hero h1 {
+  max-width: 17ch;
+  margin: 0 auto;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  letter-spacing: -0.035em;
+}
+
+.hero .lead {
+  margin: 1rem auto 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.45;
+}
+
 .eyebrow {
+  margin: 1.25rem 0 0;
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 700;
@@ -223,6 +237,11 @@ li,
 
 .hero-intro p {
   margin: 0.5rem 0 0;
+}
+
+.beta-callout a {
+  font-size: 1.125rem;
+  font-weight: 700;
 }
 
 .hero-intro + .button {
@@ -449,36 +468,36 @@ footer {
  * The media query below applies only when no light preference is saved.
  */
 :root[data-theme='dark'] {
-  --link: #fff;
-  --ink: #fff;
-  --muted: #fff;
-  --line: #fff;
-  --surface: #000;
+  --link: #e5e5e5;
+  --ink: #e5e5e5;
+  --muted: #e5e5e5;
+  --line: #e5e5e5;
+  --surface: #121212;
   --band-background: #202635;
-  --base: #000;
+  --base: #121212;
   --header-base: #fff;
   --header-ink: #131723;
   --header-muted: #272f47;
   --header-line: #d1d5db;
-  --download-heading: #fff;
-  --download-copy: #fff;
+  --download-heading: #e5e5e5;
+  --download-copy: #e5e5e5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --link: #fff;
-    --ink: #fff;
-    --muted: #fff;
-    --line: #fff;
-    --surface: #000;
+    --link: #e5e5e5;
+    --ink: #e5e5e5;
+    --muted: #e5e5e5;
+    --line: #e5e5e5;
+    --surface: #121212;
     --band-background: #202635;
-    --base: #000;
+    --base: #121212;
     --header-base: #fff;
     --header-ink: #131723;
     --header-muted: #272f47;
     --header-line: #d1d5db;
-    --download-heading: #fff;
-    --download-copy: #fff;
+    --download-heading: #e5e5e5;
+    --download-copy: #e5e5e5;
   }
 }
 

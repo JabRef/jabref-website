@@ -7,6 +7,8 @@
  */
 export const JABREF_LATEST_RELEASE_URL = 'https://github.com/JabRef/jabref/releases/latest'
 
+export const JABREF_BETA_RELEASE_URL = 'https://github.com/JabRef/jabref/releases/tag/v6.0-beta.2'
+
 export type DownloadTarget =
   | 'win_msi'
   | 'win_zip'
