@@ -5,9 +5,9 @@
  * the asset by name instead of constructing a versioned filename keeps this
  * static site independent from a server and from packaging-name changes.
  */
-export const JABREF_BETA_RELEASE_URL = 'https://github.com/JabRef/jabref/releases/tag/v6.0-beta.2'
-
 export const JABREF_LATEST_RELEASE_URL = 'https://github.com/JabRef/jabref/releases/latest'
+
+export const JABREF_BETA_RELEASE_URL = 'https://github.com/JabRef/jabref/releases/tag/v6.0-beta.2'
 
 export type DownloadTarget =
   | 'win_msi'
