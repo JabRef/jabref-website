@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { JABREF_BETA_RELEASE_URL } from '../../utils/jabrefDownloads'
 
 for (const [name, path] of [
   ['home', '/'],
@@ -12,7 +13,7 @@ for (const [name, path] of [
     if (name === 'home') {
       await expect(page.locator('.download-options')).toHaveAttribute('aria-busy', 'false')
       for (const section of ['.hero', '#download']) {
-        await expect(page.locator(section).getByRole('link', { name: 'Try out the latest 6.0 beta' })).toHaveAttribute('href', 'https://github.com/JabRef/jabref/releases/tag/v6.0-beta.2')
+        await expect(page.locator(section).getByRole('link', { name: 'Try out the latest 6.0 beta' })).toHaveAttribute('href', JABREF_BETA_RELEASE_URL)
       }
     }
     await expect.poll(() => page.locator('img').evaluateAll(images =>
